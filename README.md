@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Bekaras(べからず)
 
-Things you may want to cover:
+## サイト概要
+「やるべきこと」や「ついついやってしまうこと」で飽和状態となった日常を見直す「思考」を整理するアプリケーション。ログインユーザーは普段無意識にやっていることの中で「意識的に」やらなかったことを記入し投稿。やらなかったことで得られたものも記入。一覧や詳細で成果として見ることができる。
 
-* Ruby version
+検索機能でキーワードなどを入れ過去の投稿を探すことができる。
 
-* System dependencies
+公開されている他人の投稿を見て、共感したものにブックマークをつけて参考にすることができる。承認欲求を刺激するフォロー機能などはなし。
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+### サイトテーマ
+思考の整理
 
-* How to run the test suite
+### テーマを選んだ理由
+to doリストも大事かもしれないが、「やるべきではないこと」つまり明確に危険である行動を認識し心にとどめておくことはそれ以上に重要なのではと考えたことがきっかけ。
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+### ターゲットユーザ
+学生～30代くらい。
 
-* ...
+
+### 主な利用シーン
+就寝前など一日を振り返るタイミング
+
+## 設計書
+
+### 機能一覧
+https://docs.google.com/spreadsheets/d/163W-9ceMLsdle4RRBtNDfThEU02BuNls0kDoh-h48Lc/edit#gid=0
+
+
