@@ -1,0 +1,30 @@
+<div class="col-xs-9">
+	<h2>Users</h2>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% users.each do |user| %>
+      <tr>
+         <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %></td>
+								
+        <td><%= user.name %></td>
+
+        
+       
+        
+        
+        <td><%= link_to 'Show', user, class: "user_#{user.id}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
