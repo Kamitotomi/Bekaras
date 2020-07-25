@@ -1,1 +1,44 @@
-<h1>新規投稿</h1>
+<div class="container">
+
+	<div class="col-xs-10 col-xs-offset-1">
+
+		<h1>Bekaras登録フォーム</h1>
+		
+
+
+		<%= form_for(@post, url: posts_path) do |f| %>
+
+			<div class="form-group row">
+
+				<h4>ジャンルを選択してください</h4>
+				<%= f.label :category, "行動" %>
+				<%= f.radio_button :category, 0, checked: true %>
+				<%= f.label :category, "言葉" %>
+				<%= f.radio_button :category, 1 %>
+			</div>
+
+			<div class="form-group row">
+
+				<%= f.label :body, "明日のBekaras" %>
+				<%= f.text_field :body %>
+			</div>
+			<div class="form-group row">
+				<%= f.label :event, "Bekarasにまつわるエピソード" %>
+				<%= f.text_area :event,  rows:'5', class: "form-control",placeholder: "エピソードを入力してください" %>
+			</div>
+				
+			<div class="form-group row">
+				<h4>達成ステータス（新規登録時は未達成として登録されます）</h4>
+				<%= f.label :status, "未達成" %>
+				<%= f.radio_button :status, 0, checked: true %>
+			</div>
+		
+				<%= f.submit '登録', class:"btn btn-primary" %>
+		
+			</div>
+
+		<% end %>
+
+	</div>
+
+</div>

@@ -1,2 +1,20 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="body">
+	<div class="container">
+		<p id="notice"></p>
+
+		<div class="row">
+			<div class="col-xs-3">
+				<%= render 'users/info', user: current_user %>
+				<!-- 新規投稿部分（共通テンプレ） -->
+				
+			</div>
+
+			<!-- ログインユーザーの投稿一覧 -->
+
+			<%= render 'index',users: @users %>
+			
+		</div>
+		
+	</div>
+	
+</div>

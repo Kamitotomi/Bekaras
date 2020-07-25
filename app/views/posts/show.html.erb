@@ -1,1 +1,57 @@
-<h1>投稿詳細</h1>
+<% if flash[:notice] %>
+      <div class="flash">
+        <p class="text"><%= flash[:notice] %></p>
+      </div>
+ <% end %>
+
+<div class="body">
+	<div class="container">
+		<p id="notice"></p>
+
+		<div class="row">
+			<div class="col-xs-3">
+				<%= render 'users/info', user: @post.user %>
+				<!-- 新規投稿部分（共通テンプレ？） -->
+				
+			</div>
+
+			<!-- ログインユーザーの投稿一覧 -->
+
+			<div class="col-xs-9">
+				<h2>Bekaras detail</h2>
+
+				<table class="table table-hover table-inverse">
+					
+					<thead>
+						<tr>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th colspan="3"></th>
+						</tr>
+					</thead>
+					<!-- 繰り返さない -->
+					
+						<tbody>
+							<tr class="post_<%= @post.id %>">
+								
+								
+								<%= render 'detail', post: @post %>
+							
+
+							</tr>
+						</tbody>
+					
+				</table>
+				
+				
+				
+			</div>
+			
+		</div>
+		
+	</div>
+	
+</div>
