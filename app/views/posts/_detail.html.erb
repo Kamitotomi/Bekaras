@@ -21,7 +21,7 @@
 							<td><%= post.status == 0 ? "未達成" : "達成" %></td>
 
 							<% if post.user == current_user %>
-							<td><%= link_to 'Edit', edit_post_path(post), class: "btn-sm btn-success edit_book_#{post.id}" %></td>
+							<td><%= link_to 'status change', edit_post_path(post) %></td>
 							<td><%= link_to 'Destroy', post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger destroy_book_#{post.id}"%></td>
 							<% end %>
 						
