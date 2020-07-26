@@ -8,6 +8,10 @@
 
 			<% if user_signed_in? %>
 
+				<%= link_to "マイページ", user_path(current_user.id), class: "glyphicon glyphicon-home home" %>
+
+				<%= link_to "新規投稿", new_post_path, class: "glyphicon glyphicon-book book" %>
+
 				<%= link_to "logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %>
 
 			<% else %>
