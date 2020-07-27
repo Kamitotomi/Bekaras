@@ -1,0 +1,14 @@
+<% post_comments.each do |post_comment| %> <!-- コメント一覧 -->
+  <tr>
+    <td>
+      <%= link_to user_path(post_comment.user), class: "user_#{post_comment.user.id}" do %>
+        <%= attachment_image_tag post_comment.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %><br>
+        <%= post_comment.user.name %>
+      <% end %>
+    </td>
+    <td><%= post_comment.comment %></td>
+    <% if post_comment.user == current_user %>
+      <td><%= link_to 'Destroy', post_post_comment_path(post_comment.post, post_comment), class: 'btn-sm btn-danger', method: :delete, remote: true %></td>
+    <% end %>
+  </tr>
+<% end %>
