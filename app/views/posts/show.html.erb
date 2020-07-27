@@ -44,7 +44,14 @@
 					
 				</table>
 				
-				
+				<table class="show-tb comment">
+					<%= render 'comment', post_comments: @post.post_comments %>
+				</table>
+
+				<%= form_with model:[@post, @post_comment], data: {remote: true} do |f| %>
+					<%= f.text_area :comment,  rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+  					<%= f.submit 'コメントする' %>
+				<% end %>
 				
 			</div>
 		</div>
