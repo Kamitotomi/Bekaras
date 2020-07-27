@@ -20,6 +20,21 @@
 
 							<td><%= post.status == 0 ? "未達成" : "達成" %></td>
 
+							<td>
+          
+          						<% if post.favorited_by?(current_user) %>
+            						<%= link_to post_favorites_path(post, redirect_id: 0), method: :delete, remote: true do %>
+              						<span class="glyphicon glyphicon-heart"><%= post.favorites.count%></span>
+            						<% end %>
+          								
+          							<% else %>
+            							
+            						<%= link_to post_favorites_path(post, redirect_id: 0), method: :post, remote: true do %>
+              						<span class="glyphicon glyphicon-heart-empty"><%= post.favorites.count %></span>
+            						<% end %>
+          						<% end %>
+        					</td>
+
 							<% if post.user == current_user %>
 							<td><%= link_to 'status change', edit_post_path(post) %></td>
 							<td><%= link_to 'Destroy', post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger destroy_book_#{post.id}"%></td>
