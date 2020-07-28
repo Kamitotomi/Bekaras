@@ -1,0 +1,33 @@
+<%= render 'search', search: @search %>
+
+<% if @q_posts %>
+  <%# 検索該当なしの場合 %>
+  <div class="item-content">
+    <% if @q_posts.empty? %>
+      <div class="col-sm-9">
+        <h3>投稿一覧</h3>
+        <p class="top-empty-message">該当なし</p>
+      </div>
+    <% else %>
+    <%# 検索該当ありの場合 %>
+      <div class="col-sm-9">
+        <h3>投稿一覧</h3>
+        
+        <%= render 'index', posts: @posts %>
+        <div class="row text-center">
+          
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <%# 一覧表示の場合 %>
+  <div class="col-sm-9">
+    <h3>投稿一覧</h3>
+    
+    <%= render 'index', posts: @posts %>
+    <div class="row text-center">
+      
+    </div>
+  </div>
+<% end %>
