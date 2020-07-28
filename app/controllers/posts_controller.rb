@@ -8,6 +8,8 @@ class PostsController < ApplicationController
 
 	def index
 		@posts = Post.all
+		@search = Post.ransack(params[:q])
+  		@q_posts = @search.result
 	end
 
 	def show
