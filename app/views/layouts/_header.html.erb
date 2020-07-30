@@ -12,6 +12,11 @@
 
 				<%= link_to "新規投稿", new_post_path, class: "glyphicon glyphicon-book book" %>
 
+				<%= link_to "タイムライン", posts_path, class: "glyphicon-book book" %>
+
+				<%= link_to "ユーザー一覧", users_path, class: "glyphicon glyphicon-user users" %>
+
+
 				<%= link_to "logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %>
 
 			<% else %>
