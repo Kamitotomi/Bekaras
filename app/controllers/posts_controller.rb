@@ -7,9 +7,9 @@ class PostsController < ApplicationController
 	end
 
 	def index
-		@posts = Post.all
+		@posts = Post.page(params[:page])
 		@search = Post.ransack(params[:q])
-  		@q_posts = @search.result
+  		@q_posts = @search.result.page(params[:page])
 	end
 
 	def show

@@ -1,0 +1,37 @@
+<div class="body">
+	<div class="container">
+		<p id="notice"></p>
+		<h2>User info</h2>
+
+		<%= form_for(@user) do |f| %>
+			<!-- エラーメッセ -->
+			<% if @user.errors.any? %>
+				<h3><%= @user.errors.count %>1 error prohibited this obj from being saved:</h3>
+    				<ul>
+      					<% @user.errors.full_messages.each do |message| %>
+        				<li><%= message %></li>
+     					<% end %>
+    				</ul>
+			<% end %>
+		
+			<h4>Name</h4>
+				<%= f.text_field :name %>
+
+			<div class="form-group has-icon">
+    			<div class="user-edit-image">
+        			<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
+    			</div>
+    			<label class="control-label sr-only" for="inputEmail">ProfileImage</label>
+    				<%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user-edit-form" %>
+			</div>                                                   
+
+			<h4>Opinion</h4>
+				<%= f.text_area :introduction %>
+	
+			<%= f.submit 'Update User' %>
+		
+		<% end %>
+		
+	</div>
+	
+</div>

@@ -13,7 +13,11 @@
       <tr>
         
         <td><%= link_to post.body, post_path(post.id) %></td>
-        <td><%= post.category == 0 ? "行動" : "言葉" %></td>
+        <% if post.category == 0 %>
+            <td>行動</td>
+            <% else %>
+            <td>言葉</td>
+        <% end %>
         
       </tr>
     <% end %>
