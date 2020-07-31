@@ -1,3 +1,4 @@
+<h2>投稿を検索する</h2>
 <%= render 'search', search: @search %>
 
 <% if @q_posts %>
@@ -13,9 +14,9 @@
       <div class="col-sm-9">
         <h3>投稿一覧</h3>
         
-        <%= render 'index', posts: @posts %>
+        <%= render 'index', posts: @q_posts %>
         <div class="row text-center">
-          
+          <%= paginate @q_posts, class: "paginate" %>
         </div>
       </div>
     <% end %>
@@ -27,7 +28,7 @@
     
     <%= render 'index', posts: @posts %>
     <div class="row text-center">
-      
+      <%= paginate @posts, class: "paginate" %>
     </div>
   </div>
 <% end %>
