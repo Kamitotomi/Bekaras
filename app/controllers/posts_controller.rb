@@ -18,11 +18,18 @@ class PostsController < ApplicationController
     	@post_comments = @post.post_comments
 	end
 
+	# フォローユーザーのみの投稿一覧（タイムライン）（この書き方でフォローしているユーザーは持ってこれたっぽい）
+
+	def following_posts
+		@user = current_user
+		@users = @user.following_user
+	end
+
 	def create
 		 @post = Post.new(post_params)
     	@post.user_id = current_user.id
   	if @post.save
-    	flash[:notice] = "Book was successfully created."
+    	flash[:notice] = "successfully"
     	redirect_to post_path(@post.id)
   	else
     	@posts = Post.all
