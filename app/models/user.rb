@@ -17,7 +17,7 @@ class User < ApplicationRecord
   def follow(user_id)
     follower.create(followed_id: user_id)
   end
-  
+  # foreign_keyは入口で、sourceが出口
   # ユーザーのフォローを外す
   def unfollow(user_id)
     follower.find_by(followed_id: user_id).destroy

@@ -1,0 +1,14 @@
+<h2>フォローユーザーの投稿のみ抽出するタイムラインページ</h2>
+
+<% @users.each do |user| %>
+
+ <% @posts = Post.where(user_id: user.id) %>
+
+ <% @posts.each do |post| %>
+
+  <%= post.body %>
+
+ <% end %>
+
+
+<% end %>
