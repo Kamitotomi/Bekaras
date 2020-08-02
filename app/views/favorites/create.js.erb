@@ -1,0 +1,5 @@
+if (location.pathname == '/posts') {
+  $(".post_<%= @post.id %>").html("<%= j(render 'posts/post',  post: @post ) %>")
+} else {
+  $(".post_<%= @post.id %>").html("<%= j(render 'posts/detail',  post: @post ) %>")
+}

@@ -44,7 +44,7 @@
 					
 				</table>
 				
-				<table class="show-tb comment">
+				<table class="show-tb comment_<%= @post.id %>">
 					<%= render 'comment', post_comments: @post.post_comments %>
 				</table>
 

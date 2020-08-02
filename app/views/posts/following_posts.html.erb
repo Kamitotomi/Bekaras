@@ -1,14 +1,30 @@
-<h2>フォローユーザーの投稿のみ抽出するタイムラインページ</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <table class="table">
+        <caption>フォローユーザータイムライン</caption>
 
-<% @users.each do |user| %>
+        <tr>
+          <th class="table-active">th.active</th>
+        </tr>
 
- <% @posts = Post.where(user_id: user.id) %>
+        <tr>
+          <% @users.each do |user| %>
 
- <% @posts.each do |post| %>
+          <% @posts = Post.where(user_id: user.id) %>
 
-  <%= post.body %>
+            <% @posts.each do |post| %>
 
- <% end %>
+            <td class="table-primary"><%= post.body %></td>
+
+          <% end %>
 
 
-<% end %>
+          <% end %>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+
+</div>
