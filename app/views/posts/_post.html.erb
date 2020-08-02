@@ -1,0 +1,22 @@
+<td><%= link_to post.body, post_path(post.id) %></td>
+        <% if post.category == 0 %>
+            <td>行動</td>
+            <% else %>
+            <td>言葉</td>
+        <% end %>
+
+        <td>
+          
+                <% if post.favorited_by?(current_user) %>
+                  <%= link_to post_favorites_path(post, redirect_id: 0), method: :delete, remote: true do %>
+                    <span class="glyphicon glyphicon-heart"><%= post.favorites.count%></span>
+                  <% end %>
+                          
+                  <% else %>
+                          
+                  <%= link_to post_favorites_path(post, redirect_id: 0), method: :post, remote: true do %>
+                    <span class="glyphicon glyphicon-heart-empty"><%= post.favorites.count %></span>
+                  <% end %>
+                <% end %>
+          </td>
+        
