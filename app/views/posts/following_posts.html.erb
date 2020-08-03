@@ -11,12 +11,13 @@
         <tr>
           <% @users.each do |user| %>
 
-          <% @posts = Post.where(user_id: user.id) %>
+          <% @posts = Post.where(user_id: user.id).order("created_at DESC").page(params[:page]).per(10) %>
 
             <% @posts.each do |post| %>
-
-            <td class="table-primary"><%= post.body %></td>
-
+            
+            <td><%= link_to post.body,post, class: "post_#{post.id}" %></td>
+            
+            <%= paginate @posts, class: "paginate" %>
           <% end %>
 
 

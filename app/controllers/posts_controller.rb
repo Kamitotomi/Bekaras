@@ -7,9 +7,16 @@ class PostsController < ApplicationController
 	end
 
 	def index
-		@posts = Post.page(params[:page])
-		@search = Post.ransack(params[:q])
-  		@q_posts = @search.result.page(params[:page])
+		case params[:post]
+
+		when 'header'
+			@search = Post.ransack(params[:q])
+  			@q_posts = @search.result.page(params[:page])
+  		else
+  			@posts = Post.page(params[:page])
+  			@search = Post.ransack(params[:q])
+  			@q_posts = @search.result.page(params[:page])
+		end
 	end
 
 	def show
