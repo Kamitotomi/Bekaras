@@ -7,16 +7,9 @@ class PostsController < ApplicationController
 	end
 
 	def index
-		case params[:post]
-
-		when 'header'
-			@search = Post.ransack(params[:q])
-  			@q_posts = @search.result.page(params[:page])
-  		else
-  			@posts = Post.page(params[:page])
-  			@search = Post.ransack(params[:q])
-  			@q_posts = @search.result.page(params[:page])
-		end
+		@posts = Post.page(params[:page])
+  		@search = Post.ransack(params[:q])
+  		@q_posts = @search.result.page(params[:page])
 	end
 
 	def show
@@ -67,6 +60,6 @@ class PostsController < ApplicationController
 	end
 
 	def post_params
-		params.require(:post).permit(:body, :event, :category, :status)
+		params.require(:post).permit(:body, :event, :category, :status, :start_time)
 	end
 end

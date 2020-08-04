@@ -32,6 +32,11 @@
 				<%= f.label :status, "未達成" %>
 				<%= f.radio_button :status, 0, checked: true %>
 			</div>
+			
+			<div class="time">
+				<%= f.label :start_time %>
+    			<%= f.datetime_select :start_time %>
+    		</div>
 		
 				<%= f.submit '登録', class:"btn btn-primary" %>
 		

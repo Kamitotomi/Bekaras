@@ -1,6 +1,17 @@
 <h2>投稿を検索する</h2>
 <%= render 'search', search: @search %>
 
+<%= month_calendar events: @posts do |date, posts| %>
+  <%= date.day %>
+
+  <% posts.each do |post| %>
+    <div>
+      <%= link_to post.body, post %>
+    </div>
+  <% end %>
+  <%= paginate @posts, class: "paginate" %>
+<% end %>
+
 <% if @q_posts %>
   <%# 検索該当なしの場合 %>
   <div class="item-content">
@@ -31,4 +42,5 @@
       <%= paginate @posts, class: "paginate" %>
     </div>
   </div>
+  
 <% end %>
