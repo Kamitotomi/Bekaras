@@ -1,0 +1,47 @@
+<% visitor = notification.visitor %>
+ <% visited = notification.visited %>
+<div class="col-md-6.mx-auto">
+  <div class="form-inline">
+      <p>
+      <%= link_to user_path(visitor) do %>
+        
+      
+          <%= visitor.name + 'さんが' %>
+      </p>
+      <% end %>
+  </div>
+</div>
+
+
+<% if notification.action == 'favorite' %>
+  
+  
+    <strong>
+    
+    <h4>いいねしました！</h4>
+    <%= link_to 'いいねされた投稿を確認する', notification.post, style: "font-weight: bold;" %>
+    
+    
+    
+    </strong>
+
+  <% elsif notification.action == 'comment' %>
+
+      <h4>コメントしました！</h4>
+
+      <%= link_to 'コメントされた投稿を確認する', notification.post, style: "font-weight: bold;" %>
+    
+    
+
+      
+
+
+    
+
+  <% else %>
+
+    <h3>お知らせはありません</h3>
+
+  
+
+<% end %>

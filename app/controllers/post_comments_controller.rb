@@ -8,6 +8,7 @@ class PostCommentsController < ApplicationController
     		if @post_comment.save
     		flash[:success] = "Comment was successfully created."
     		redirect_to post_path(@post)
+    		@post.create_notification_post_comment!(current_user, @post_comment.id)
 		else
 			post_comments = PostComment.where(post_id: @post)
     	end

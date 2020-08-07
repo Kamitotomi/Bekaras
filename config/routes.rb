@@ -17,4 +17,6 @@ Rails.application.routes.draw do
     get 'followers' => 'relationships#followed', as: 'followers'
 end
 
+  resources :notifications, only: :index
+
 end
