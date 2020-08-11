@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   end
 
   def create_notification_favorite!(current_user)
-    # 
+    # whereでいいねされているか検索
     temp = Notification.where(["visitor_id = ? and visited_id = ? and post_id = ? and action = ? ", current_user.id, user_id, id, 'favorite'])
     # いいねされていない場合のみ、通知レコードを作成
     if temp.blank?
@@ -23,16 +23,19 @@ class Post < ApplicationRecord
         notification.checked = true
       end
       notification.save if notification.valid?
+      #valid?はエラーなしでtrue、エラーありでfalseになるメソッド
     end
   end
 
   def create_notification_post_comment!(current_user, post_comment_id)
-    # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
+    # コメントしている人をすべて取得、where.not(user_id: current_user.id)で自分を除外。全員に通知を送る
+    #selectしてdistinctで重複を解消
     temp_ids = PostComment.select(:user_id).where(post_id: id).where.not(user_id: current_user.id).distinct
     temp_ids.each do |temp_id|
       save_notification_post_comment!(current_user, post_comment_id, temp_id['user_id'])
     end
-    # まだ誰もコメントしていない場合は、投稿者に通知を送る
+    # 誰もコメントしていない時、投稿者に通知
+    #後置ifでも可能
     save_notification_post_comment!(current_user, post_comment_id, user_id) if temp_ids.blank?
   end
 

@@ -1,3 +1,8 @@
+<div class="body">
+  <div class="container">
+
+    <div class="row">
+
 <% visitor = notification.visitor %>
  <% visited = notification.visited %>
 <div class="col-md-6.mx-auto">
@@ -12,32 +17,19 @@
   </div>
 </div>
 
-
+<div class="col-md-6">
 <% if notification.action == 'favorite' %>
   
-  
-    <strong>
     
-    <h4>いいねしました！</h4>
-    <%= link_to 'いいねされた投稿を確認する', notification.post, style: "font-weight: bold;" %>
-    
-    
-    
-    </strong>
+      <h4>あなたの投稿にいいねしました！</h4>
+        <%= link_to 'いいねされた投稿を確認する', notification.post, style: "font-weight: bold;" %>
 
   <% elsif notification.action == 'comment' %>
 
-      <h4>コメントしました！</h4>
+      <h4>あなたの投稿にコメントしました！</h4>
 
       <%= link_to 'コメントされた投稿を確認する', notification.post, style: "font-weight: bold;" %>
-    
-    
-
-      
-
-
-    
-
+  
   <% else %>
 
     <h3>お知らせはありません</h3>
@@ -45,3 +37,7 @@
   
 
 <% end %>
+</div>
+    </div>
+  </div>
+</div>

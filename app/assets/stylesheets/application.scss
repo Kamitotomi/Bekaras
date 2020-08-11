@@ -16,3 +16,43 @@
  */
  @import "bootstrap-sprockets";  /*ここを追加*/
 @import "bootstrap";            /*ここを追加*/
+
+#container{
+  height: 500px;
+}
+
+.image1 {
+  background-image: url(common.png);
+}
+.image2 {
+  background-image: url(every.png);
+}
+.image3 {
+  background-image: url(up.png);
+}
+
+header {
+  width: 100vw;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: #faa;
+ }
+
+.body {
+	background-color: #F0E68C;
+	padding-top: 100px;
+	position: relative;
+}
+
+.simple-calendar {
+	background-color: white;
+}
+
+footer {
+  padding: 15px 0;
+  font-size: 14px;
+  text-align: center;
+  background-color: #ccc;
+}
