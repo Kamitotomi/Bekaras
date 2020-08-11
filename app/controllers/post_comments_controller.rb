@@ -1,5 +1,9 @@
 class PostCommentsController < ApplicationController
 
+	before_action :authenticate_user!
+
+	
+
 	def create
 			@post = Post.find(params[:post_id])
     		@post_new = Post.new
@@ -18,6 +22,8 @@ class PostCommentsController < ApplicationController
 		PostComment.find_by(id: params[:id], post_id: params[:post_id]).destroy
     	redirect_to post_path(params[:post_id])
 	end
+
+	
 
 	private
 
