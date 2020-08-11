@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
 	before_action :authenticate_user!
+	before_action :correct_user, only: [:edit, :update, :destroy]
 	
 	def new
 		@post = Post.new
@@ -59,6 +60,14 @@ class PostsController < ApplicationController
     	redirect_to posts_url
 	end
 
+	def correct_user
+  		@post = current_user.posts.find_by(id: params[:id])
+    	unless @post
+      		redirect_to posts_path
+    	end
+	end
+
+	private
 	def post_params
 		params.require(:post).permit(:body, :event, :category, :status, :start_time)
 	end
