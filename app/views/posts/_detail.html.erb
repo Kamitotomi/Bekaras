@@ -4,7 +4,7 @@
 						<td>
 							<%= link_to user_path(post.user_id) do %>
 							<%= attachment_image_tag post.user, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>  
-							<p><%= post.user.name %></p>
+							<p><%= post.user.name + "さん"%></p>
 							<% end %>
 								
 						</td>
@@ -13,14 +13,12 @@
 						
 							<td><%= post.body %></td> 
 								
-							<td><%= post.event %></td>
+							
 
-							<td>
-  								<strong>時間</strong>
-  								<%= post.start_time %>
-							</td>
+							
 								
-							<td><%= post.category == 0 ? "行動" : "言葉" %></td>
+							<td><%= post.category == 0 ? "なんてしない" : "言わない" %></td>
+							<td><%= post.event %></td>
 
 							<td><%= post.status == 0 ? "未達成" : "達成" %></td>
 

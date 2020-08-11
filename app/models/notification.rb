@@ -1,5 +1,6 @@
 class Notification < ApplicationRecord
 	default_scope -> { order(created_at: :desc) }
+	#新しいデータから取得できるようにするやつ
   belongs_to :post, optional: true
   belongs_to :post_comment, optional: true
 

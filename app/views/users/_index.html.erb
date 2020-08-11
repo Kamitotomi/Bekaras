@@ -1,11 +1,11 @@
 <div class="col-xs-9">
-	<h2>Users</h2>
+	<h2>やらない人々</h2>
 
 <table class='table'>
   <thead>
     <tr>
-      <th>image</th>
-      <th>name</th>
+      <th>ポートフォリオ対策のアイコン機能</th>
+      <th>ニックネーム</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -30,8 +30,13 @@
         </td>
        
         
-        
-        <td><%= link_to 'Show', user, class: "user_#{user.id}" %></td>
+        <% if user != current_user %>
+          <td><%= link_to 'この人のBekaras', user, class: "user_#{user.id}" %></td>
+        <% else %>
+          <td><%= link_to 'マイページへ', user, class: "user_#{user.id}" %></td>
+        <% end %>
+      
+
       </tr>
     <% end %>
   </tbody>

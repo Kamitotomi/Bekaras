@@ -1,39 +1,49 @@
 <header class="py-4">
 	
-	<div class="container text-center">
+	<div class="container">
 
-		<h1>Bekaras</h1>
+			<%= link_to(root_path, class:"header-logo") do %>
+
+            	<nav class="nav navbar-nav navbar-left">
+            		<!-- ここにイメージタグ -->
+                	<h1>Bekaras</h1> 
+            	</nav>
+            <% end %>
 		<!-- nav -->
-		<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+		<ul class="nav nav-pills nav-fill navbar-right">
 
 			<% if user_signed_in? %>
 
-				<%= link_to "マイページ", user_path(current_user.id), class: "glyphicon glyphicon-home home" %>
+				<li><%= link_to "マイページ", user_path(current_user.id), class: "glyphicon glyphicon-home home" %></li>
 
-				<%= link_to "新規投稿", new_post_path, class: "glyphicon glyphicon-book book" %>
+				<li><%= link_to "新規投稿", new_post_path, class: "glyphicon glyphicon-book book" %></li>
 
-				<%= link_to "投稿検索", posts_path, class: "glyphicon-book book" %>
+				<li><%= link_to "投稿検索", posts_path, class: "glyphicon-book book" %></li>
 
-				<%= link_to "タイムライン", following_posts_path %>
-
-
-				<%= link_to "ユーザー一覧", users_path, class: "glyphicon glyphicon-user users" %>
-
-				<%= link_to "お知らせ", notifications_path %>
+				<li><%= link_to "タイムライン", following_posts_path %></li>
 
 
-				<%= link_to "logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %>
+				<li><%= link_to "ユーザー一覧", users_path, class: "glyphicon glyphicon-user users" %></li>
+
+				<li><%= link_to "お知らせ", notifications_path %></li>
+
+
+				<li><%= link_to "logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %></li>
 
 			<% else %>
 
-				<a class="glyphicon glyphicon-home home" href="/"> Home</a>
-                  <a class="glyphicon glyphicon-link about" href="/home/about"> About</a>
-                  <a class="glyphicon glyphicon-edit sign_up" href="/users/sign_up"> sign up</a>
-                  <a class="glyphicon glyphicon-log-in sign_in" href="/users/sign_in"> login</a>
+				<li><%= link_to "Home", root_path %></li>
+
+				<li><%= link_to "About", home_about_path %></li>
+
+				<li><%= link_to "会員登録", new_user_registration_path %></li>
+
+				<li><%= link_to "ログインする", new_user_session_path %></li>
+
 
 			<% end %>
 			
-		</nav>
+		</ul>
 		
 	</div>
 	
