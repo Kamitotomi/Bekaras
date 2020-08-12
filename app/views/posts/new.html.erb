@@ -10,20 +10,23 @@
 
 		<%= form_for(@post, url: posts_path) do |f| %>
 
-			<div class="form-group row">
-
-				<h4>ジャンルを選択してください</h4>
-				<%= f.label :category, "行動" %>
-				<%= f.radio_button :category, 0, checked: true %>
-				<%= f.label :category, "言葉" %>
-				<%= f.radio_button :category, 1 %>
-			</div>
+			
 
 			<div class="form-group row">
 
 				<%= f.label :body, "明日のBekaras" %>
 				<%= f.text_field :body %>
 			</div>
+
+			<div class="form-group row">
+
+				<h4>後に続く言葉を選択</h4>
+				<%= f.label :category, "なんてしない" %>
+				<%= f.radio_button :category, 0, checked: true %>
+				<%= f.label :category, "とか言わない" %>
+				<%= f.radio_button :category, 1 %>
+			</div>
+			
 			<div class="form-group row">
 				<%= f.label :event, "Bekarasにまつわるエピソード" %>
 				<%= f.text_area :event,  rows:'5', class: "form-control",placeholder: "エピソードを入力してください" %>
