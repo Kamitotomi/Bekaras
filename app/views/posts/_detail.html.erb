@@ -38,8 +38,8 @@
         					</td>
 
 							<% if post.user == current_user %>
-							<td><%= link_to 'status change', edit_post_path(post) %></td>
-							<td><%= link_to 'Destroy', post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger destroy_book_#{post.id}"%></td>
+							<td><%= link_to '達成確認', edit_post_path(post), class: "btn btn-primary" %></td>
+							<td><%= link_to '削除', post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger destroy_book_#{post.id}"%></td>
 							<% end %>
 						
 								
