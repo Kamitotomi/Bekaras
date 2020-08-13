@@ -3,12 +3,12 @@
   <div class="row">
     <div class="col-xs-8">
       
-        
+          <caption>あなたがフォローしている人の投稿</caption>
           <% @users.each do |user| %>
 
             <% @posts = Post.where(user_id: user.id).order("created_at DESC").page(params[:page]).per(10) %>
           <table class="table">
-            <caption>あなたがフォローしている人の投稿</caption>
+            
             <thead>
               <tr>
                 <th>投稿者</th>
