@@ -27,7 +27,25 @@
 ### 主な利用シーン
 就寝前など一日を振り返るタイミング
 
-## 設計書
+## 開発環境
+
+- OS
+     Linux
+ - 言語
+     HTML,CSS,JavaScript,Ruby,SQL
+
+ - フレームワーク
+             
+    Ruby on Rails
+                       
+ - Railsライブラリ
+     
+     device, kaminari, ransack, refile, refile-mini_magic, simple_calendar         
+ - JSライブラリ
+      jQuery
+  - インフラ
+      AWS(EC2,RDS,EIP)
+
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/163W-9ceMLsdle4RRBtNDfThEU02BuNls0kDoh-h48Lc/edit#gid=0
